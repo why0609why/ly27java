@@ -1,0 +1,8 @@
+# demo
+demo里面创建了一个线程，线程的执行内容是睡5秒，然后打印执行完毕。其中有两个测试类，一个是测试stop方法，一个是测试interrupt方法。
+在主线程中sleep1秒，自己的线程中sleep5秒，主线程sleep完之后立刻调用stop方法或者interrupt方法，会有不同的结果
+
+
+# 关于结果
+主线程调用stop方法之后，没有发现线程t的执行完毕标志没有出现，说明stop方法是直接杀死线程。
+主线程调用interrupt方法之后，发现线程t中的catch捕获到的interruptexception异常，说明interrupt是更改线程状态，并不是直接杀死线程。
